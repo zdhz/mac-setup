@@ -27,4 +27,10 @@ elif [[ "$update_choice" =~ ^[Yy]$ ]]; then
   brew upgrade ansible || exit_with_message "Ansible upgrade failed" 
 fi
 
+# Install ansible-galaxy roles & collections
+ansible-galaxy install ${update_choice:+--force} elliotweiser.osx-command-line-tools || exit_with_message "Ansible elliotweiser.osx-command-line-tools install/update failed"
+ansible-galaxy collection install ${update_choice:+--force} community.general || exit_with_message "Ansible community.general install/update failed"
+
+ansible-playbook playbook.yaml -K || exit_with_message "Ansible playbook failed"
+
 echo "Completed install!"

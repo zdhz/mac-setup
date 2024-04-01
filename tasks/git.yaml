@@ -1,0 +1,13 @@
+- name: Git Setup
+  block:
+    - name: Install latest git
+      comunity.general.homebrew:
+        name: git
+        state: latest
+    - name: Check git version
+      ansible.builtin.command:
+        cmd: git --version
+    - name: Create global .gitignore
+      ansible.builtin.template:
+        src: ../templates/.gitignore
+        dest: ~/.gitignore_global
