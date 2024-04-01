@@ -1,4 +1,4 @@
 - name: Mac machine setup
   hosts: localhost
   tasks:
-    - import_tasks: tasks/git-setup.yaml
+    - import_tasks: tasks/git.yaml
