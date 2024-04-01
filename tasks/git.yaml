@@ -4,10 +4,95 @@
       community.general.homebrew:
         name: git
         state: latest
-    - name: Check git version
-      ansible.builtin.command:
-        cmd: git --version
+
+    - name: Git user name
+      ansible.builtin.git_config:
+        name: user.name
+        value: "Daniel Hazrati"
+        scope: global
+
+    - name: Git user email
+      ansible.builtin.git_config:
+        name: user.email
+        value: "14818558+zdhz@users.noreply.github.com"
+        scope: global
+
     - name: Create global .gitignore
       ansible.builtin.template:
         src: ../templates/.gitignore
         dest: ~/.gitignore_global
+
+    - name: Set global .gitignore
+      ansible.builtin.git_config:
+        name: core.excludesfile
+        value: ~/.gitignore_global
+        scope: global
+
+    - name: Git set pull to rebase
+      ansible.builtin.git_config:
+        name: pull.rebase
+        value: true
+        scope: global
+
+    - name: Set editor
+      ansible.builtin.git_config:
+        name: core.editor
+        value: nvim
+        scope: global
+    
+    - name: Set fetch prune
+      ansible.builtin.git_config:
+        name: fetch.prune
+        value: true
+        scope: global
+
+    - name: Set autoSetupRemote
+      ansible.builtin.git_config:
+        name: push.autoSetupRemote
+        scope: global
+        value: true
+
+    - name: Set global git default branch name
+      ansible.builtin.git_config:
+        name: init.defaultBranch
+        scope: global
+        value: main
+
+    # Plugins - diff-so-fancy
+    - name: Install diff-so-fancy
+      community.general.homebrew:
+        name: diff-so-fancy
+        state: latest
+
+    - name: Enable colorized output
+      ansible.builtin.git_config:
+        name: color.ui
+        scope: global
+        value: auto
+
+    - name: Improve git diff output
+      ansible.builtin.git_config:
+        name: core.pager
+        scope: global
+        value: "diff-so-fancy | less --tabs=4 -RFX"
+
+    - name: Set diff-so-fancy colors
+      ansible.builtin.git_config:
+        name: "{{ item.name }}"
+        scope: global
+        value: "{{ item.value }}"
+      loop:
+        - { name: "color.diff-highlight.oldNormal", value: "red bold" }
+        - { name: "color.diff-highlight.oldHighlight", value: "red bold 52" }
+        - { name: "color.diff-highlight.newNormal", value: "green bold" }
+        - { name: "color.diff-highlight.newHighlight", value: "green bold 22" }
+        - { name: "color.diff.meta", value: "11" }
+        - { name: "color.diff.frag", value: "magenta bold" }
+        - { name: "color.diff.func", value: "146 bold" }
+        - { name: "color.diff.commit", value: "yellow bold" }
+        - { name: "color.diff.old", value: "red bold" }
+        - { name: "color.diff.new", value: "green bold" }
+        - { name: "color.diff.whitespace", value: "red reverse" }
+
+# credential.helper=osxkeychain
+# url.ssh://git@github.com/.insteadof=https://github.com/
