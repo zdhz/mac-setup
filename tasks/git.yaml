@@ -1,7 +1,7 @@
 - name: Git Setup
   block:
     - name: Install latest git
-      comunity.general.homebrew:
+      community.general.homebrew:
         name: git
         state: latest
     - name: Check git version
