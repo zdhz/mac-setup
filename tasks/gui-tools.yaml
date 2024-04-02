@@ -7,5 +7,5 @@
     state: latest
     greedy: yes
     install_options: force
-    ignore_errors: true # TODO - How to surface errors?
   with_items: "{{ gui_packages }}"
+  ignore_errors: true # TODO - How to surface errors?
