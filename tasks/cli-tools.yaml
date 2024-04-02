@@ -1,5 +1,5 @@
 - name: Install CLI tools
   community.general.homebrew:
     name: "{{ item }}"
-    state: stable
+    state: latest
   with_items: "{{ cli_packages }}"
