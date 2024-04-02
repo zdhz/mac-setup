@@ -1,7 +1,7 @@
 - name: Install ZSH
   community.general.homebrew:
     name: zsh
-    state: stable
+    state: latest
 
 - name: Set default shell
   shell: chsh -s $(which zsh)
