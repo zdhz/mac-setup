@@ -2,6 +2,7 @@
   hosts: localhost
   vars_files:
     - ./vars.yaml
+  # Pre-task, update brew
   tasks:
     - import_tasks: tasks/git.yaml
     - import_tasks: tasks/cli-tools.yaml
