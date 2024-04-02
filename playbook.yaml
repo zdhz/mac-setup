@@ -6,6 +6,7 @@
   tasks:
     - import_tasks: tasks/git.yaml
     - import_tasks: tasks/cli-tools.yaml
+    - import_tasks: tasks/gui-tools.yaml
     - import_tasks: tasks/zsh.yaml
     - import_tasks: tasks/dock.yaml
     # - import_tasks: ansible/tasks/fonts.yaml
