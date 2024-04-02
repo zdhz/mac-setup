@@ -1,0 +1,34 @@
+- name: Configure dock
+  block:
+    - name: Install dockutil
+      community.general.homebrew:
+        name: ["dockutil"]
+        state: latest
+
+    - name: Clear dock
+      shell: dockutil --remove all --no-restart
+
+    - name: Setup dock
+      shell: dockutil --add {{ item }} --no-restart
+      with_items:
+        - "'' --type small-spacer --section apps --after Finder"
+        - /Applications/Obsidian.app
+        - /Applications/Todoist.app
+        - "'' --type small-spacer --section apps --after Todoist"
+        - /Applications/Slack.app
+        - /Applications/Google\ Chrome.app
+        - "'' --type small-spacer --section apps --after Google Chrome"
+        - /Applications/Visual\ Studio\ Code.app
+        - /Applications/iTerm.app
+        - "'' --type small-spacer --section apps --after iTerm"
+        - /Applications/Spotify.app
+        - /Applications/Brave.app
+        - /Applications --section others --view grid --display stack --sort name
+        - /Downloads --section others --view list --display stack --sort dateadded
+      ignore_errors: yes
+
+    - name: Restart dock
+      shell: "/usr/bin/killall Dock"
+      tags:
+        - install
+        - dock

@@ -8,13 +8,13 @@
     - name: Git user name
       ansible.builtin.git_config:
         name: user.name
-        value: "Daniel Hazrati"
+        value: "{{ git_username }}"
         scope: global
 
     - name: Git user email
       ansible.builtin.git_config:
         name: user.email
-        value: "14818558+zdhz@users.noreply.github.com"
+        value: "{{ git_email }}"
         scope: global
 
     - name: Create global .gitignore

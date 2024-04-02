@@ -1,0 +1,55 @@
+git_username: "Daniel Hazrati"
+git_email: "14818558+zdhz@users.noreply.github.com"
+
+cli_packages:
+  - adr-tools
+  - awscli
+  - bat
+  - curl
+  - fd
+  - fzf
+  - gh
+  - grep
+  - htop
+  - httpie
+  - jq
+  - neovim
+  - node
+  - nvm
+  - redis
+  - terraform
+  - tldr
+  - tmux
+  - tree
+  - wget
+
+gui_packages:
+  - 1password
+  - alfred
+  - bitwarden
+  - brave-browser
+  - discord
+  - docker 
+  - firefox
+  - flux
+  - google-chrome
+  - imageoptim
+  - iterm2
+  - logi-options-plus
+  - meetingbar
+  - monitorcontrol
+  - ngrok
+  - notion
+  - obsidian
+  - postman
+  - protonvpn
+  - scroll-reverser
+  - slack
+  - signal
+  - spotify
+  - todoist
+  - visual-studio-code
+  - vlc
+  - zoom
+  - warp
+  - whatsapp
