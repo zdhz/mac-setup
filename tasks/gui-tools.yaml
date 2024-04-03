@@ -1,6 +1,7 @@
 - name: Tapping homebrew/cask-versions to get alternate versions
   community.general.homebrew_tap:
     name: homebrew/cask-versions
+
 - name: Install GUI tools via brew casks
   community.general.homebrew_cask:
     name: "{{ item }}"

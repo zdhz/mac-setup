@@ -1,0 +1,34 @@
+- name: OSX defaults
+  shell: "{{ item }}"
+  with_items:
+    - defaults write com.apple.dock show-recents -bool FALSE
+    - defaults write com.apple.finder ShowPathbar -bool true
+    - defaults write com.apple.finder ShowStatusBar -bool true
+
+    # Use current directory as default search scope in Finder
+    - defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+
+    - defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+
+
+    # Notifications Center
+    # ----------------------------------------------------------------------
+    # Extend the banner time to 20 seconds
+    - defaults write com.apple.notificationcenterui bannerTime 20
+
+- name: Set automatic software updates to true
+  osx_defaults:
+    domain: /Library/Preferences/com.apple.SoftwareUpdate
+    key: AutomaticCheckEnabled
+    type: int
+    value: 1
+  become: yes
+
+- name: Restart finder
+  changed_when: true
+  command: killall Finder
+  tags:
+    - install
+    - osx

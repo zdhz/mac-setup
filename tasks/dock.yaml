@@ -19,12 +19,13 @@
         - /Applications/Google\ Chrome.app
         - "'' --type small-spacer --section apps --after 'Google Chrome'"
         - /Applications/Visual\ Studio\ Code.app
-        - /Applications/iTerm.app
+        - /Applications/Warp.app
         - "'' --type small-spacer --section apps --after iTerm"
         - /Applications/Spotify.app
-        - /Applications/Brave.app
+        - /Applications/Brave\ Browser.app
+        - "'' --type small-spacer --section apps --after 'Brave Browser'"
         - /Applications --section others --view grid --display stack --sort name
-        - /Downloads --section others --view list --display stack --sort dateadded
+        - /users/$(whoami)/Downloads --section others --view fan --display stack --sort dateadded
       ignore_errors: yes
 
     - name: Restart dock

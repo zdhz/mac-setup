@@ -9,4 +9,5 @@
     - import_tasks: tasks/gui-tools.yaml
     - import_tasks: tasks/zsh.yaml
     - import_tasks: tasks/dock.yaml
+    - import_tasks: tasks/osx.yaml
     # - import_tasks: ansible/tasks/fonts.yaml

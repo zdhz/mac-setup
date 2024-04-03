@@ -16,6 +16,7 @@ cli_packages:
   - node
   - nvm
   - redis
+  - ripgrep
   - terraform
   - tldr
   - tmux
